@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Rancho&family=Saira+Stencil+One&display=swap');
+
+*{
+    font-family: 'Rancho', cursive;
+    /* margin: 0; */
+}
+
+:root {
+    --c1: #323232;
+    --c2: #FA4EAB;
+    --c3: #FE83C6;
+    --c4: #fbbee0;
+    --c5: #FFF2F9;
+}
+
+body {
+    min-height: 100vh;
+}
+
+.c3{
+    color: var(--c3);
+    border: 1px solid;
+}
+
+.c3:hover{
+    background-color: var(--c2);
+    color: var(--c5);
+}
+
+.title-slide {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-shadow: #FFF2F9 0.1em 0.1em 0.2em;
+}
+
+/* MOBILE FIRST */
+/* Header */
+header {
+    height: 7vh;
+}
+
+.navbar {
+    z-index: 2;
+}
+
+header, .navbar,
+footer {
+    background-color: var(--c4);
+}
+
+header .nav-link:hover{
+    color: var(--c2);
+    text-shadow: #FFF2F9 0.2em 0.2em 0.1em;
+}
+
+.carousel-item {
+    height: 20vh;
+}
+
+main {
+    min-height: 58vh;
+}
+
+main .central {
+    background-color: #fbbedf7e;
+    border-radius: 7px;
+}
+
+.form-check-input:checked {
+    background-color: var(--c3);
+    border-color: var(--c2);
+}
+
+form, .info-contact {
+    margin: 0 auto;
+}
+
+.form-control:focus {
+    border-color: var(--c3);
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px var(--c2);
+    outline: 0 none;
+}
+
+.card-img-top{
+    height: 50%;
+}
+
+.float-r {
+    float: right;
+}
+
+footer {
+    min-height: 15vh;
+}
+
+footer .logos {
+    width: 80%;
+}
+
+footer .icon img{
+    height: 2rem;
+}
+
+footer .tyc a, .copy p {
+    text-decoration: none;
+    color: black;
+    font-size: 1.1rem;
+}
+
+/* CONTACT */
+#form-contact {
+    padding: 10px 20px;
+}
+
+th {
+    width: 30%;
+}
+
+#form-contact .contact {
+    width: 100%;
+    background-color: var(--c3);
+    color: var(--c5);
+    border: none;
+    border-radius: 5px;
+    padding: 5px 0;
+}
+
+#form-contact .contact:hover {
+    border-color: var(--c5);
+    box-shadow: 0 1px 1px rgba(229, 103, 23, 0.075)inset, 0 0 8px var(--c3);
+
+}
+
+.info-contact iframe {
+    max-width: 80%;
+}
+
+@media (min-width: 768px){
+    nav {
+        height: 100%;
+    }
+
+    nav .nav-link{
+        font-size: 1.2em;
+    }
+
+    #form-contact, .info-contact {
+        width: 50%;
+    }
+}
+
+
+.here {
+    border: red 3px solid;
+}
