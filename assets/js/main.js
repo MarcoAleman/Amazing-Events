@@ -3,10 +3,10 @@ const { createApp } = Vue;
 createApp({
     data() {
         return {
+            URI: 'https://amazing-events.herokuapp.com/api/events',
             title: '',
             events: [],
             backupEvents: [],
-            URI: 'https://amazing-events.herokuapp.com/api/events',
             categories: [],
             checksOn: [],
             querySearch: '',
@@ -17,7 +17,7 @@ createApp({
                 hightCapacity: {},
                 pastStats: [],
                 upStats: [],
-            },
+            }
         }
     },
     created(){
@@ -44,31 +44,29 @@ createApp({
                         this.backupEvents = upEvents;
                         this.title = 'Upcoming Events';
                         break;
+                    case path.includes('detail'):
+                        this.title = 'Detail';
+                        let queryString = location.search;
+                        let params = new URLSearchParams(queryString);
+                        let id = params.get('id');
+                        this.eventDetail = this.backupEvents.find(event => event._id == id);
+                        break; 
+                    case path.includes('stats'):
+                        this.title = 'statistics';
+                        this.stats.pastStats = this.getAllStats(pastEvents)
+                        this.stats.upStats = this.getAllStats(upEvents)
+                        this.backupEvents.sort((a, b) => a.capacity - b.capacity);
+                        pastEvents.sort((a, b) => (a.assistance / a.capacity) - (b.assistance / b.capacity));
+
+                        this.stats.hightAssistence = pastEvents[29]; //hight assistance
+                        this.stats.lowAssistence = pastEvents[0]; //low assistance
+                        this.stats.hightCapacity = this.backupEvents[49]; //hight capacity
+                        break;
                     default:
-                        this.title = 'Home';
+                        this.title = path.includes('contact') ? 'Contact' : 'Home';
                 }
                 this.events = this.backupEvents;
-                this.events.forEach(event => {
-                    if(!this.categories.includes(event.category)){
-                        this.categories.push(event.category)
-                    }
-                })
-
-                //Detail
-                let queryString = location.search;
-                let params = new URLSearchParams(queryString);
-                let id = params.get('id');
-                this.eventDetail = this.events.find(event => event._id == id);
-
-                //Stasts
-                this.stats.pastStats = this.getAllStats(pastEvents)
-                this.stats.upStats = this.getAllStats(upEvents)
-                this.events.sort((a, b) => a.capacity - b.capacity);
-                pastEvents.sort((a, b) => (a.assistance / a.capacity) - (b.assistance / b.capacity));
-
-                this.stats.hightAssistence = pastEvents[29]; //hight assistance
-                this.stats.lowAssistence = pastEvents[0]; //low assistance
-                this.stats.hightCapacity = this.events[49]; //hight capacity
+                this.categories = this.getCategories(this.events);
             })
         },
         getCategories(data){
