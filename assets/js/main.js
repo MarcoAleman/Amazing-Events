@@ -114,6 +114,3 @@ createApp({
         }
     }
 }).mount('#app');
-
-
-//TODO no es necesario pero puedo hacer una funcion que active los a del navbar con el title algo asi: :class="[title == 'home' ? active : '']"

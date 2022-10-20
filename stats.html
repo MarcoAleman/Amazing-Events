@@ -55,7 +55,7 @@
                     <div class="carousel-item">
                         <img src="./assets/img/slide3.jpg" class="d-block w-100" alt="...">
                     </div>
-                    <h1 class="title-slide">{{title.toUpperCase()}}</h1>
+                    <h1 class="title-slide" v-text="title.toUpperCase()"></h1>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -81,9 +81,9 @@
                     </thead>
                     <tbody>
                         <tr id="table1">
-                            <td><a :href="'detail.html?id='+stats.hightAssistence._id">{{stats.hightAssistence.name}}</a></td>
-                            <td><a :href="'detail.html?id='+stats.lowAssistence._id">{{stats.lowAssistence.name}}</a></td>
-                            <td><a :href="'detail.html?id='+stats.hightCapacity._id">{{stats.hightCapacity.name}}</a></td>
+                            <td><a :href="'detail.html?id='+stats.hightAssistence._id" v-text="stats.hightAssistence.name"></a></td>
+                            <td><a :href="'detail.html?id='+stats.lowAssistence._id" v-text="stats.lowAssistence.name"></a></td>
+                            <td><a :href="'detail.html?id='+stats.hightCapacity._id" v-text="stats.hightCapacity.name"></a></td>
                         </tr>
                     </tbody>
                 </table>

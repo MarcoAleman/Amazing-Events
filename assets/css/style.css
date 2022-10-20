@@ -155,3 +155,8 @@ th {
 .here {
     border: red 3px solid;
 }
+
+/* VUE */
+[v-cloak] {
+    display: none;
+}
