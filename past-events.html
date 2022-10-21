@@ -76,7 +76,7 @@
             </div>
         </div>
 
-        {{superFiltro}}
+        <span v-cloak>{{superFiltro}}</span>
         <main>
             <div class="container p-3 mt-lg-3 mb-lg-2 central">
                 <div class="row">
@@ -90,7 +90,7 @@
                     </div>
 
                     <form class="d-flex col-md-6 col-lg-3" role="search">
-                        <input v-model="querySearch" class="form-control me-2" type="search" placeholder="Search"
+                        <input v-model="querySearch" class="form-control me-2 text-center" type="search" placeholder="Search"
                             aria-label="Search">
                     </form>
                 </div>
