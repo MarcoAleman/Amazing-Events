@@ -87,12 +87,12 @@
 
                 <div class="collection-cards mt-sm-4 d-flex flex-wrap justify-content-evenly" id="index">
                     <div v-cloak v-if="backupEvents.length != 0 && events.length == 0">
-                        <h3 class = 'text-center' >Ups!... no results found</h3>
+                        <h3 class='text-center'>Ups!... no results found</h3>
                         <img src='./assets/img/no-results.svg' class="card-img-top" alt="...">
                     </div>
                     <div v-else-if="backupEvents.length == 0">
                         <h3 class="text-center">Loading...</h3>
-                        <img src="./assets/img/load-infinity.svg" alt="" srcset="">
+                        <img src="./assets/img/load-infinity.svg" alt="loading">
                     </div>
                     <div v-cloak v-for="event in events" class="card m-2" style="width: 18rem;">
                         <img :src="event.image" class="card-img-top" alt="...">
