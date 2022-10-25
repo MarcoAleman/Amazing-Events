@@ -58,7 +58,7 @@ createApp({
                         this.backupEvents.sort((a, b) => a.capacity - b.capacity);
                         pastEvents.sort((a, b) => (a.assistance / a.capacity) - (b.assistance / b.capacity));
 
-                        this.stats.hightAssistence = pastEvents[29]; //hight assistance
+                        this.stats.hightAssistence = pastEvents[pastEvents.length -1]; //hight assistance
                         this.stats.lowAssistence = pastEvents[0]; //low assistance
                         this.stats.hightCapacity = this.backupEvents[49]; //hight capacity
                         break;
@@ -95,9 +95,9 @@ createApp({
 
                 data.forEach(event => {
                     if(event.category == category) {
-                        cat.revenue = cat.revenue + (event.price * (event.assistance ?? event.estimate));
-                        cat.percent = cat.percent + ((event.assistance ?? event.estimate) / event.capacity) * 100;
-                        cat.events = cat.events + 1
+                        cat.revenue += (event.price * (event.assistance ?? event.estimate));
+                        cat.percent += ((event.assistance ?? event.estimate) / event.capacity) * 100;
+                        cat.events += 1
                     }
                 })
                 cat.percent = (cat.percent / cat.events).toFixed(2);
